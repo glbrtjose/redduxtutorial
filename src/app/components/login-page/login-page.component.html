@@ -1,0 +1,23 @@
+<p>username: {{ currentUser$.username }}</p>
+<p>password: {{ currentUser$.password }}</p>
+<p>{{ myForm.get('username').value }}
+</p>
+<form (ngSubmit)="onSubmit()">
+    <input
+        required
+        placeholder="username"
+        type="text"
+        [formControl]="myForm.controls.username"
+    >
+    <input
+        required
+        placeholder="password"
+        type="text"
+        [formControl]="myForm.controls.password"
+    >
+    <button
+        type="submit"
+    >
+        Send
+    </button>
+</form>

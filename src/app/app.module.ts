@@ -12,22 +12,36 @@ import { TodoComponent } from './components/todo/todo.component';
 import { TodoSonComponent } from './components/todo-son/todo-son.component';
 import { contadorReducer } from './reducers/contador.reducer';
 import { environment } from 'src/environments/environment';
-
+import { counterReducer } from './reducers/counter.reducer';
+import { MyCounterComponent } from './components/my-counter/my-counter.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { loginReducer } from './reducers/login.reducer';
+import { scoreboardReducer } from './reducers/scoreboard.reducer';
+import { ScoreboardPageComponent } from './components/scoreboard-page/scoreboard-page.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    TodoSonComponent
+    TodoSonComponent,
+    MyCounterComponent,
+    LoginPageComponent,
+    ScoreboardPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(
       {
-        contador: contadorReducer
-      }
+        login: loginReducer,
+        contador: contadorReducer,
+        count: counterReducer,
+        // game: scoreboardReducer
+      },
     ),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
