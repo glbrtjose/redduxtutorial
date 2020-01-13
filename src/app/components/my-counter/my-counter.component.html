@@ -1,5 +1,6 @@
 
 <div>Current Count: {{ count$ | async }}</div>
+<p>Username: {{ currentUser$.username }}</p>
 <button id='increment' (click)="increment()">Increment</button>
 <button id="decrement" (click)="decrement()">Decrement</button>
 <button id="multiply" (click)="multiply()">Multiply</button>

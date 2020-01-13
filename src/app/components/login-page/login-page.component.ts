@@ -25,10 +25,15 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {
     this.store.pipe(select("login")).subscribe(
-        (data:any) => {
-          this.currentUser$=data
-        }
-      );
+      (data:any) => {
+        this.currentUser$=data
+      }
+    );
+    this.store.pipe(select(
+      state => {
+        console.log(`gue es jesto: ${state}`);
+      }
+    ));
     this.myForm=this.formBuilder.group({
         username:['',[Validators.required]],
         password:['',[Validators.required]]
@@ -37,7 +42,6 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmit = ():void => {
-    console.log(this.currentUser$);
     this.store.dispatch(fromLogin.login(
         this.myForm.value
       )
